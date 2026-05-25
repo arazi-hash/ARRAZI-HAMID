@@ -149,8 +149,8 @@ fun DashboardScreen(
                             Text(
                                 text = label,
                                 color = if (isSelected) Color(0xFF2DD4A0) else Color(0xFF888888),
-                                fontSize = 11.sp,
-                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                                fontSize = 13.sp,
+                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                                 fontFamily = FontFamily.Monospace,
                                 letterSpacing = 0.5.sp
                             )
@@ -190,13 +190,13 @@ fun DashboardScreen(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             text = "⚓", 
-                            fontSize = 14.sp,
+                            fontSize = 16.sp,
                             modifier = Modifier.padding(end = 4.dp)
                         )
                         Text(
                             text = "ANALOG ANCHOR",
                             color = Color(0xFFF5F2ED),
-                            fontSize = 13.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.SansSerif,
                             letterSpacing = 1.sp
@@ -205,7 +205,7 @@ fun DashboardScreen(
                     Text(
                         text = "PRACTICAL MINIMALISM",
                         color = Color(0xFF888888),
-                        fontSize = 11.sp,
+                        fontSize = 12.sp,
                         fontFamily = FontFamily.Monospace,
                         letterSpacing = 1.5.sp
                     )
@@ -227,7 +227,7 @@ fun DashboardScreen(
                         Text(
                             text = if (isEnglish) "EN" else "عربي",
                             color = Color(0xFF2DD4A0),
-                            fontSize = 11.sp,
+                            fontSize = 13.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -246,7 +246,7 @@ fun DashboardScreen(
                         Text(
                             text = systemTime.ifEmpty { "18:09" },
                             color = Color(0xFFE5E5E5),
-                            fontSize = 13.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.Medium,
                             fontFamily = FontFamily.Monospace
                         )
@@ -371,7 +371,7 @@ fun BankTabContent(
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         
         // 1. DayTime Access Card
@@ -380,7 +380,7 @@ fun BankTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0x1A2DD4A0)), RoundedCornerShape(8.dp))
                 .background(Color(0x08FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(16.dp)
+                .padding(20.dp)
         ) {
             Column {
                 Row(
@@ -396,25 +396,26 @@ fun BankTabContent(
                     Text(
                         text = if (isEnglish) "DAYTIME ACCESS SECURED" else "تم تأمين الدخول النهاري",
                         color = Color(0xFF2DD4A0),
-                        fontSize = 11.sp,
+                        fontSize = 13.sp,
                         fontWeight = FontWeight.Bold,
                         fontFamily = FontFamily.Monospace,
                         letterSpacing = 1.sp
                     )
                 }
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = if (isLocked) "The system is Locked." else "The Bank holds the line.",
                     color = Color(0xFFF5F2ED),
-                    fontSize = 18.sp,
+                    fontSize = 21.sp,
                     fontWeight = FontWeight.Bold
                 )
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = if (isLocked) "Verification is required at your local Sanctuary to release the phone boundaries." 
                            else "Phone unlocked through standard hours. Night enforcement engages at 22:00.",
-                    color = Color(0xFF888888),
-                    fontSize = 13.sp,
-                    lineHeight = 16.sp
+                    color = Color(0xFFBBBBBB),
+                    fontSize = 15.sp,
+                    lineHeight = 18.sp
                 )
             }
         }
@@ -425,7 +426,7 @@ fun BankTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
                 .background(Color(0x08FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(16.dp)
+                .padding(20.dp)
         ) {
             Column {
                 Row(
@@ -437,11 +438,12 @@ fun BankTabContent(
                         Text(
                             text = if (isEnglish) "RESERVE BALANCE" else "رصيد الاحتياطي",
                             color = Color(0xFF888888),
-                            fontSize = 11.sp,
+                            fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Monospace,
                             letterSpacing = 1.sp
                         )
+                        Spacer(modifier = Modifier.height(4.dp))
                         Row(
                             verticalAlignment = Alignment.Bottom,
                             horizontalArrangement = Arrangement.spacedBy(4.dp)
@@ -449,24 +451,24 @@ fun BankTabContent(
                             Text(
                                 text = "$reservePoints",
                                 color = Color(0xFFF5F2ED),
-                                fontSize = 38.sp,
+                                fontSize = 48.sp,
                                 fontWeight = FontWeight.Light
                             )
                             Text(
                                 text = "PTS",
                                 color = Color(0xFF888888),
-                                fontSize = 13.sp,
+                                fontSize = 15.sp,
                                 modifier = Modifier.padding(bottom = 6.dp)
                             )
                         }
                     }
                     Column(horizontalAlignment = Alignment.End) {
-                        Text(text = "CEILING", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
-                        Text(text = "200", color = Color(0xFFE5E5E5), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                        Text(text = "CEILING", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                        Text(text = "200", color = Color(0xFFE5E5E5), fontSize = 15.sp, fontWeight = FontWeight.Bold)
                     }
                 }
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
 
                 // Segmented Progress Bar
                 Row(
@@ -488,19 +490,19 @@ fun BankTabContent(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text("EMPTY", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
-                    Text("85%", color = Color(0xFF2DD4A0), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
-                    Text("FULL", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                    Text("EMPTY", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                    Text("85%", color = Color(0xFF2DD4A0), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                    Text("FULL", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
                 Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(Color(0x0DFFFFFF)))
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
 
                 // Stats row
                 Row(
@@ -509,34 +511,34 @@ fun BankTabContent(
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🔥", fontSize = 12.sp)
+                            Text("🔥", fontSize = 14.sp)
                             Spacer(modifier = Modifier.width(4.dp))
-                            Text("12d", color = Color(0xFFF5F2ED), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                            Text("12d", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
-                        Text("STREAK", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                        Text("STREAK", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🛡️", fontSize = 12.sp)
+                            Text("🛡️", fontSize = 14.sp)
                             Spacer(modifier = Modifier.width(4.dp))
-                            Text(if (isLocked) "Closed" else "Open", color = Color(0xFF2DD4A0), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                            Text(if (isLocked) "Closed" else "Open", color = Color(0xFF2DD4A0), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
-                        Text("ACCESS", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                        Text("ACCESS", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🕌", fontSize = 12.sp)
+                            Text("🕌", fontSize = 14.sp)
                             Spacer(modifier = Modifier.width(4.dp))
-                            Text("368h", color = Color(0xFFF5F2ED), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                            Text("368h", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
-                        Text("LAST FAJR", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                        Text("LAST FAJR", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                     }
                 }
             }
         }
 
         // 3. Ritual Queue
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -545,7 +547,7 @@ fun BankTabContent(
                 Text(
                     text = if (isEnglish) "RITUAL QUEUE • TONIGHT" else "طابور الصلوات والطقوس الليلة",
                     color = Color(0xFF888888),
-                    fontSize = 11.sp,
+                    fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Monospace,
                     letterSpacing = 1.5.sp
@@ -553,7 +555,7 @@ fun BankTabContent(
                 Text(
                     text = if (isEnglish) "2 pending" else "٢ متبقي",
                     color = Color(0xFF888888),
-                    fontSize = 11.sp,
+                    fontSize = 13.sp,
                     fontFamily = FontFamily.Monospace
                 )
             }
@@ -569,7 +571,7 @@ fun BankTabContent(
                         .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
                         .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
                         .clickable { if (emoji == "🌙") onStartProtocolClick() else onCheckInClick() }
-                        .padding(12.dp)
+                        .padding(14.dp)
                 ) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -579,21 +581,21 @@ fun BankTabContent(
                         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                             Box(
                                 modifier = Modifier
-                                    .size(32.dp)
+                                    .size(36.dp)
                                     .background(Color(0xFF141414), RoundedCornerShape(6.dp))
                                     .border(BorderStroke(1.dp, Color(0x0FFFFFFF)), RoundedCornerShape(6.dp)),
                                 contentAlignment = Alignment.Center
                             ) {
-                                Text(emoji, fontSize = 14.sp)
+                                Text(emoji, fontSize = 16.sp)
                             }
                             Column {
-                                Text(title, color = Color(0xFFE5E5E5), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
-                                Text(time, color = Color(0xFF888888), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
+                                Text(title, color = Color(0xFFE5E5E5), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+                                Text(time, color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                             }
                         }
                         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Text(reward, color = Color(0xFF2DD4A0), fontSize = 13.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
-                            Text("➔", color = Color(0xFF888888), fontSize = 12.sp)
+                            Text(reward, color = Color(0xFF2DD4A0), fontSize = 15.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+                            Text("➔", color = Color(0xFF888888), fontSize = 14.sp)
                         }
                     }
                 }
@@ -601,7 +603,7 @@ fun BankTabContent(
         }
 
         // 4. Ledger tape summary
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -610,7 +612,7 @@ fun BankTabContent(
                 Text(
                     text = if (isEnglish) "LEDGER TAPE" else "شريط المعاملات",
                     color = Color(0xFF888888),
-                    fontSize = 11.sp,
+                    fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Monospace,
                     letterSpacing = 1.5.sp
@@ -618,7 +620,7 @@ fun BankTabContent(
                 Text(
                     text = if (isEnglish) "VIEW LOGS" else "عرض السجل",
                     color = Color(0xFF2DD4A0),
-                    fontSize = 11.sp,
+                    fontSize = 13.sp,
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.clickable { /* action handles in local reserve view */ }
@@ -629,7 +631,7 @@ fun BankTabContent(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(80.dp)
+                        .height(100.dp)
                         .background(Color(0x02FFFFFF), RoundedCornerShape(8.dp))
                         .border(BorderStroke(1.dp, Color(0x0FFFFFFF)), RoundedCornerShape(8.dp)),
                     contentAlignment = Alignment.Center
@@ -637,7 +639,7 @@ fun BankTabContent(
                     Text(
                         "No events logged on hardware yet.",
                         color = Color(0xFF888888),
-                        fontSize = 13.sp
+                        fontSize = 15.sp
                     )
                 }
             } else {
@@ -647,19 +649,19 @@ fun BankTabContent(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(Color(0x03FFFFFF), RoundedCornerShape(4.dp))
-                                .padding(vertical = 10.dp, horizontal = 12.dp),
+                                .padding(vertical = 12.dp, horizontal = 14.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                                Text("📈", fontSize = 12.sp)
-                                Text(log.action, color = Color(0xFFE5E5E5), fontSize = 13.sp)
+                                Text("📈", fontSize = 14.sp)
+                                Text(log.action, color = Color(0xFFE5E5E5), fontSize = 15.sp)
                             }
                             val positive = log.pointsChange >= 0
                             Text(
                                 text = if (positive) "+${log.pointsChange}" else "${log.pointsChange}",
                                 color = if (positive) Color(0xFF2DD4A0) else Color(0xFFF59E0B),
-                                fontSize = 13.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.Monospace
                             )
@@ -704,22 +706,23 @@ fun AnchorTabContent(
             Text(
                 text = "PILLAR I • PROTOCOL",
                 color = Color(0xFF2DD4A0),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.5.sp
             )
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Evening Anchor",
                 color = Color(0xFFF5F2ED),
-                fontSize = 24.sp,
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = "Two taps. One verified session. The Reserve grows.",
                 color = Color(0xFF888888),
-                fontSize = 13.sp
+                fontSize = 15.sp
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -747,11 +750,11 @@ fun AnchorTabContent(
                         Text(
                             text = label,
                             color = if (isCurrent) Color(0xFF2DD4A0) else Color(0xFF444444),
-                            fontSize = 11.sp,
+                            fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Monospace
                         )
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Spacer(modifier = Modifier.height(6.dp))
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -776,7 +779,7 @@ fun AnchorTabContent(
                         Text(
                             text = "✓ ANCHOR RECOGNIZED",
                             color = Color(0xFF2DD4A0),
-                            fontSize = 11.sp,
+                            fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Monospace,
                             modifier = Modifier.fillMaxWidth(),
@@ -785,7 +788,7 @@ fun AnchorTabContent(
                         Text(
                             text = "Choose duration",
                             color = Color(0xFFF5F2ED),
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center
@@ -820,19 +823,19 @@ fun AnchorTabContent(
                                         Text(
                                             text = "$min",
                                             color = Color(0xFFF5F2ED),
-                                            fontSize = 28.sp,
+                                            fontSize = 32.sp,
                                             fontWeight = FontWeight.Light,
                                             fontFamily = FontFamily.Monospace
                                         )
                                         Column {
-                                            Text(title, color = Color(0xFFE5E5E5), fontSize = 14.sp, fontWeight = FontWeight.Bold)
-                                            Text(desc, color = Color(0xFF888888), fontSize = 12.sp)
+                                            Text(title, color = Color(0xFFE5E5E5), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                                            Text(desc, color = Color(0xFF888888), fontSize = 14.sp)
                                         }
                                     }
                                     Text(
                                         text = "+25 PTS",
                                         color = Color(0xFF2DD4A0),
-                                        fontSize = 13.sp,
+                                        fontSize = 15.sp,
                                         fontWeight = FontWeight.Bold,
                                         fontFamily = FontFamily.Monospace
                                     )
@@ -849,7 +852,7 @@ fun AnchorTabContent(
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2DD4A0), contentColor = Color(0xFF0A0A0A)),
                             shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text("CONTINUE TO PRE-FLIGHT", fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                            Text("CONTINUE TO PRE-FLIGHT", fontSize = 15.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
                         }
                     }
                 }
@@ -861,7 +864,7 @@ fun AnchorTabContent(
                         Text(
                             text = "PRE-FLIGHT",
                             color = Color(0xFF888888),
-                            fontSize = 11.sp,
+                            fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Monospace,
                             letterSpacing = 1.5.sp
@@ -869,7 +872,7 @@ fun AnchorTabContent(
                         Text(
                             text = "Place phone face-down. Think on paper.",
                             color = Color(0xFFF5F2ED),
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
                         )
 
@@ -898,7 +901,7 @@ fun AnchorTabContent(
                                         },
                                         fontSize = 14.sp
                                     )
-                                    Text(label, color = Color(0xFFE5E5E5), fontSize = 14.sp)
+                                    Text(label, color = Color(0xFFE5E5E5), fontSize = 15.sp)
                                 }
                                 Switch(
                                     checked = value,
@@ -925,7 +928,7 @@ fun AnchorTabContent(
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text("BEGIN ${chosenDuration}-MINUTE SESSION", fontWeight = FontWeight.Bold)
+                            Text("BEGIN ${chosenDuration}-MINUTE SESSION", fontSize = 15.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                 }
@@ -1251,28 +1254,29 @@ fun MosqueTabContent(
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Column {
             Text(
                 text = "PILLAR II • SANCTUARY",
                 color = Color(0xFF2DD4A0),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.5.sp
             )
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Mosque Anchor",
                 color = Color(0xFFF5F2ED),
-                fontSize = 24.sp,
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = "Geofenced presence. Verified prayer earns Reserve. Fajr earns the most.",
                 color = Color(0xFF888888),
-                fontSize = 13.sp
+                fontSize = 15.sp
             )
         }
 
@@ -1282,7 +1286,7 @@ fun MosqueTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
                 .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(14.dp)
+                .padding(16.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -1290,16 +1294,16 @@ fun MosqueTabContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text("📍", fontSize = 18.sp)
+                    Text("📍", fontSize = 20.sp)
                     Column {
-                        Text("Masjid Al-Rajhi • 320m", color = Color(0xFFE5E5E5), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                        Text("Within geofence • prototype simulation", color = Color(0xFF888888), fontSize = 12.sp)
+                        Text("Masjid Al-Rajhi • 320m", color = Color(0xFFE5E5E5), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text("Within geofence • prototype simulation", color = Color(0xFF888888), fontSize = 14.sp)
                     }
                 }
                 Box(
                     modifier = Modifier
-                        .size(8.dp)
-                        .background(Color(0xFF2DD4A0), RoundedCornerShape(4.dp))
+                        .size(10.dp)
+                        .background(Color(0xFF2DD4A0), RoundedCornerShape(5.dp))
                 )
             }
         }
@@ -1310,7 +1314,7 @@ fun MosqueTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0xFF2DD4A0).copy(alpha = 0.3f)), RoundedCornerShape(8.dp))
                 .background(Color(0x0A2DD4A0), shape = RoundedCornerShape(8.dp))
-                .padding(14.dp)
+                .padding(16.dp)
         ) {
             Column {
                 Row(
@@ -1319,29 +1323,29 @@ fun MosqueTabContent(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text("🌅", fontSize = 16.sp)
+                        Text("🌅", fontSize = 18.sp)
                         Column {
                             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                                Text("Fajr", color = Color(0xFFF5F2ED), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                                Text("⭐", fontSize = 12.sp)
+                                Text("Fajr", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                                Text("⭐", fontSize = 14.sp)
                             }
-                            Text("04:48 • +40 pts", color = Color(0xFF888888), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
+                            Text("04:48 • +40 pts", color = Color(0xFF888888), fontSize = 14.sp, fontFamily = FontFamily.Monospace)
                         }
                     }
                     Box(
                         modifier = Modifier
                             .background(Color(0x222DD4A0), RoundedCornerShape(100.dp))
                             .border(BorderStroke(1.dp, Color(0xFF2DD4A0)), RoundedCornerShape(100.dp))
-                            .padding(horizontal = 8.dp, vertical = 3.dp)
+                            .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
-                        Text("VERIFIED", color = Color(0xFF2DD4A0), fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                        Text("VERIFIED", color = Color(0xFF2DD4A0), fontSize = 13.sp, fontWeight = FontWeight.Bold)
                     }
                 }
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(10.dp))
                 Text(
                     text = "Highest reward • social apps stay locked until sunrise",
                     color = Color(0xFF888888),
-                    fontSize = 12.sp
+                    fontSize = 14.sp
                 )
             }
         }
@@ -1354,40 +1358,40 @@ fun MosqueTabContent(
                 .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
                 .padding(16.dp)
         ) {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text("🌙", fontSize = 14.sp)
-                    Text("SACRED VAULT", color = Color(0xFF888888), fontSize = 11.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+                    Text("🌙", fontSize = 16.sp)
+                    Text("SACRED VAULT", color = Color(0xFF2DD4A0), fontSize = 13.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
                 }
                 
-                Text("Maghrib-to-Isha Retreat", color = Color(0xFFF5F2ED), fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                Text("Maghrib-to-Isha Retreat", color = Color(0xFFF5F2ED), fontSize = 21.sp, fontWeight = FontWeight.Bold)
                 Text(
                     text = "Remain inside the mosque until Isha. Phone stays locked. Highest Reserve reward.",
-                    color = Color(0xFF888888),
-                    fontSize = 13.sp,
-                    lineHeight = 16.sp
+                    color = Color(0xFFBBBBBB),
+                    fontSize = 15.sp,
+                    lineHeight = 20.sp
                 )
 
                 if (!isRetreatActive) {
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Column {
-                            Text("18:11", color = Color(0xFF888888), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
-                            Text("START", color = Color(0xFF444444), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                            Text("18:11", color = Color(0xFFE5E5E5), fontSize = 15.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                            Text("START", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                         }
                         Box(
                             modifier = Modifier
                                 .background(Color(0xFF141414), RoundedCornerShape(100.dp))
-                                .padding(horizontal = 10.dp, vertical = 4.dp)
+                                .padding(horizontal = 14.dp, vertical = 6.dp)
                         ) {
-                            Text("+40 PTS", color = Color(0xFF2DD4A0), fontSize = 12.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+                            Text("+40 PTS", color = Color(0xFF2DD4A0), fontSize = 15.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
                         }
                         Column(horizontalAlignment = Alignment.End) {
-                            Text("19:42", color = Color(0xFF888888), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
-                            Text("END", color = Color(0xFF444444), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                            Text("19:42", color = Color(0xFFE5E5E5), fontSize = 15.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                            Text("END", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                         }
                     }
 
@@ -1404,11 +1408,11 @@ fun MosqueTabContent(
                                 modifier = Modifier
                                     .weight(1f)
                                     .background(Color(0xFF111111), RoundedCornerShape(6.dp))
-                                    .padding(8.dp),
+                                    .padding(10.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
-                                Text(a, color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
-                                Text(b, color = col, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                                Text(a, color = Color(0xFF888888), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
+                                Text(b, color = col, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                     }
@@ -1417,11 +1421,11 @@ fun MosqueTabContent(
                         onClick = { onRetreatToggle(true) },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(44.dp),
+                            .height(48.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2DD4A0), contentColor = Color(0xFF0A0A0A)),
                         shape = RoundedCornerShape(8.dp)
                     ) {
-                        Text("START RETREAT", fontWeight = FontWeight.Bold)
+                        Text("START RETREAT", fontSize = 16.sp, fontWeight = FontWeight.Bold)
                     }
                 } else {
                     // ACTIVE RETREAT TIMER VIEW
@@ -1430,15 +1434,15 @@ fun MosqueTabContent(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Text("TIME UNTIL ISHA", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                        Text("TIME UNTIL ISHA", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                         Text(
                             text = "1:24",
                             color = Color(0xFFF5F2ED),
-                            fontSize = 44.sp,
+                            fontSize = 54.sp,
                             fontWeight = FontWeight.Light,
                             fontFamily = FontFamily.Monospace
                         )
-                        Text("Do not leave the vault. Stay present until Isha.", color = Color(0xFF888888), fontSize = 12.sp)
+                        Text("Do not leave the vault. Stay present until Isha.", color = Color(0xFFBBBBBB), fontSize = 14.sp)
 
                         Spacer(modifier = Modifier.height(8.dp))
 
@@ -1454,10 +1458,10 @@ fun MosqueTabContent(
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                                    Box(modifier = Modifier.size(6.dp).background(Color(0xFF2DD4A0), RoundedCornerShape(3.dp)))
-                                    Text(lbl, color = Color(0xFFE5E5E5), fontSize = 13.sp)
+                                    Box(modifier = Modifier.size(8.dp).background(Color(0xFF2DD4A0), RoundedCornerShape(4.dp)))
+                                    Text(lbl, color = Color(0xFFE5E5E5), fontSize = 15.sp)
                                 }
-                                Text(valStr, color = Color(0xFF2DD4A0), fontSize = 12.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                                Text(valStr, color = Color(0xFF2DD4A0), fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
                             }
                         }
 
@@ -1468,12 +1472,12 @@ fun MosqueTabContent(
                                     viewModel.failFocusSession("Left Mosque Geofence during Retreat")
                                     Toast.makeText(context, "Retreat broken. Locked!", Toast.LENGTH_SHORT).show()
                                 },
-                                modifier = Modifier.weight(1f),
+                                modifier = Modifier.weight(1f).height(44.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Color(0x13FFFFFF), contentColor = Color(0xFF888888)),
                                 border = BorderStroke(1.dp, Color(0x33FFFFFF)),
                                 shape = RoundedCornerShape(8.dp)
                             ) {
-                                Text("SIM • LEAVE", fontSize = 11.sp)
+                                Text("SIM • LEAVE", fontSize = 13.sp, fontWeight = FontWeight.Bold)
                             }
 
                             Button(
@@ -1482,11 +1486,11 @@ fun MosqueTabContent(
                                     viewModel.addPoints(40, "Completed Maghrib-Isha Retreat", "retreat")
                                     Toast.makeText(context, "Retreat Complete! +40 pts", Toast.LENGTH_SHORT).show()
                                 },
-                                modifier = Modifier.weight(1f),
+                                modifier = Modifier.weight(1f).height(44.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2DD4A0), contentColor = Color(0xFF0A0A0A)),
                                 shape = RoundedCornerShape(8.dp)
                             ) {
-                                Text("COMPLETE", fontSize = 11.sp)
+                                Text("COMPLETE", fontSize = 13.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                     }
@@ -1501,19 +1505,19 @@ fun MosqueTabContent(
                 .border(BorderStroke(1.dp, Color(0xFFF59E0B).copy(alpha = 0.3f)), RoundedCornerShape(8.dp))
                 .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
                 .clickable { onEmergencyUnlockClick() }
-                .padding(14.dp)
+                .padding(18.dp)
         ) {
             Column {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text("⚠️", fontSize = 13.sp)
-                    Text("EMERGENCY UNLOCK", color = Color(0xFFF59E0B), fontSize = 11.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+                    Text("⚠️", fontSize = 15.sp)
+                    Text("EMERGENCY UNLOCK", color = Color(0xFFF59E0B), fontSize = 13.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
                 }
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = "If your Reserve is empty, drive to the mosque and verify presence. The system unlocks one window. The cost: -60 pts.",
-                    color = Color(0xFF888888),
-                    fontSize = 13.sp,
-                    lineHeight = 16.sp
+                    color = Color(0xFFBBBBBB),
+                    fontSize = 15.sp,
+                    lineHeight = 20.sp
                 )
             }
         }
@@ -1535,28 +1539,29 @@ fun ReserveTabContent(
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Column {
             Text(
                 text = "PILLAR III • THE LEDGER",
                 color = Color(0xFF2DD4A0),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.5.sp
             )
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Reserve Bank",
                 color = Color(0xFFF5F2ED),
-                fontSize = 24.sp,
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = "You are spending discipline you already earned. A bad night does not erase a good month.",
                 color = Color(0xFF888888),
-                fontSize = 13.sp
+                fontSize = 15.sp
             )
         }
 
@@ -1566,29 +1571,32 @@ fun ReserveTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
                 .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(16.dp)
+                .padding(20.dp)
         ) {
             Column {
-                Text("BALANCE", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                Text("BALANCE", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = "$reservePoints pts",
                     color = Color(0xFFF5F2ED),
-                    fontSize = 44.sp,
+                    fontSize = 54.sp,
                     fontWeight = FontWeight.Light
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
                 Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(Color(0x0DFFFFFF)))
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
 
                 Row(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.weight(1f)) {
-                        Text("EARNED (30D)", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
-                        Text("+130", color = Color(0xFF2DD4A0), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text("EARNED (30D)", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text("+130", color = Color(0xFF2DD4A0), fontSize = 18.sp, fontWeight = FontWeight.Bold)
                     }
                     Column(modifier = Modifier.weight(1f)) {
-                        Text("SPENT (30D)", color = Color(0xFF888888), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
-                        Text("-95", color = Color(0xFFF59E0B), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text("SPENT (30D)", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text("-95", color = Color(0xFFF59E0B), fontSize = 18.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
@@ -1600,25 +1608,25 @@ fun ReserveTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0x332DD4A0)), RoundedCornerShape(8.dp))
                 .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(14.dp)
+                .padding(16.dp)
         ) {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.Top) {
-                Text("ℹ️", fontSize = 14.sp)
+                Text("ℹ️", fontSize = 16.sp)
                 Text(
                     text = "Reserve prevents all-or-nothing failure. Miss a session — pay the price, keep building. The ledger remembers everything.",
-                    color = Color(0xFF888888),
-                    fontSize = 13.sp,
-                    lineHeight = 16.sp
+                    color = Color(0xFFBBBBBB),
+                    fontSize = 15.sp,
+                    lineHeight = 20.sp
                 )
             }
         }
 
         // 3. Complete Ledger List
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(
                 text = "LEDGER",
                 color = Color(0xFF888888),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.5.sp
@@ -1628,11 +1636,11 @@ fun ReserveTabContent(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(80.dp)
+                        .height(120.dp)
                         .background(Color(0x02FFFFFF), RoundedCornerShape(8.dp)),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text("No records found.", color = Color(0xFF888888), fontSize = 13.sp)
+                    Text("No records found.", color = Color(0xFF888888), fontSize = 15.sp)
                 }
             } else {
                 sessionLogs.forEach { log ->
@@ -1642,7 +1650,7 @@ fun ReserveTabContent(
                             .fillMaxWidth()
                             .background(Color(0x03FFFFFF), RoundedCornerShape(4.dp))
                             .border(BorderStroke(1.dp, Color(0x05FFFFFF)), RoundedCornerShape(4.dp))
-                            .padding(12.dp)
+                            .padding(14.dp)
                     ) {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
@@ -1650,17 +1658,17 @@ fun ReserveTabContent(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                                Text("↗️", fontSize = 12.sp)
+                                Text("↗️", fontSize = 14.sp)
                                 Column {
-                                    Text(log.action, color = Color(0xFFE5E5E5), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
-                                    Text(dateStr, color = Color(0xFF888888), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
+                                    Text(log.action, color = Color(0xFFE5E5E5), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                                    Text(dateStr, color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                                 }
                             }
                             val positive = log.pointsChange >= 0
                             Text(
                                 text = if (positive) "+${log.pointsChange}" else "${log.pointsChange}",
                                 color = if (positive) Color(0xFF2DD4A0) else Color(0xFFF59E0B),
-                                fontSize = 12.sp,
+                                fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.Monospace
                             )
@@ -1686,28 +1694,29 @@ fun StrictTabContent(
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Column {
             Text(
                 text = "ENFORCER",
                 color = Color(0xFF2DD4A0),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.5.sp
             )
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Strict Mode",
                 color = Color(0xFFF5F2ED),
-                fontSize = 24.sp,
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = "The Anchor enforces the contract you made with yourself.",
                 color = Color(0xFF888888),
-                fontSize = 13.sp
+                fontSize = 15.sp
             )
         }
 
@@ -1725,10 +1734,10 @@ fun StrictTabContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text("🛡️", fontSize = 16.sp)
+                    Text("🛡️", fontSize = 18.sp)
                     Column {
-                        Text("Strict Mode", color = Color(0xFFF5F2ED), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                        Text("Engaged • contract active", color = Color(0xFF2DD4A0), fontSize = 13.sp)
+                        Text("Strict Mode", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        Text("Engaged • contract active", color = Color(0xFF2DD4A0), fontSize = 14.sp)
                     }
                 }
                 Switch(
@@ -1750,15 +1759,15 @@ fun StrictTabContent(
             "• Social apps blocked from 22:00 until after sunrise.",
             "• Disabling Strict Mode requires Anchor tap + 24-hour cool-down."
         ).forEach { rule ->
-            Text(text = rule, color = Color(0xFF888888), fontSize = 13.sp, lineHeight = 18.sp)
+            Text(text = rule, color = Color(0xFFBBBBBB), fontSize = 15.sp, lineHeight = 22.sp, fontWeight = FontWeight.Medium)
         }
 
-        // 3. Locked apps grid mockup
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        // 3. Locked apps list
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(
                 text = "LOCKED APPS • 22:00 ➔ Sunrise",
                 color = Color(0xFF888888),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.2.sp
@@ -1772,35 +1781,41 @@ fun StrictTabContent(
                 Pair("Snapchat", "🔒 LOCKED")
             )
 
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.height(180.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                userScrollEnabled = false
-            ) {
-                items(lockedApps) { (appName, status) ->
-                    Box(
-                        modifier = Modifier
-                            .background(Color(0xFF141414), RoundedCornerShape(8.dp))
-                            .border(BorderStroke(1.dp, Color(0x0FFFFFFF)), RoundedCornerShape(8.dp))
-                            .clickable { Toast.makeText(context, "$appName is hardware locked. Focus on paper.", Toast.LENGTH_SHORT).show() }
-                            .padding(12.dp)
+            val chunkedApps = lockedApps.chunked(2)
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                chunkedApps.forEach { rowApps ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Column {
-                            val emoji = when(appName) {
-                                "Instagram" -> "📸"
-                                "TikTok" -> "🎵"
-                                "X (Twitter)" -> "🐦"
-                                "YouTube Shorts" -> "🎥"
-                                else -> "👻"
+                        rowApps.forEach { (appName, status) ->
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .background(Color(0xFF141414), RoundedCornerShape(8.dp))
+                                    .border(BorderStroke(1.dp, Color(0x0FFFFFFF)), RoundedCornerShape(8.dp))
+                                    .clickable { Toast.makeText(context, "$appName is hardware locked. Focus on paper.", Toast.LENGTH_SHORT).show() }
+                                    .padding(14.dp)
+                            ) {
+                                Column {
+                                    val emoji = when(appName) {
+                                        "Instagram" -> "📸"
+                                        "TikTok" -> "🎵"
+                                        "X (Twitter)" -> "🐦"
+                                        "YouTube Shorts" -> "🎥"
+                                        else -> "👻"
+                                    }
+                                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                                        Text(emoji, fontSize = 14.sp)
+                                        Text(appName, color = Color(0xFFE5E5E5), fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                                    }
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Text(status, color = Color(0xFFF59E0B), fontSize = 12.sp, fontFamily = FontFamily.Monospace)
+                                }
                             }
-                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                                Text(emoji, fontSize = 12.sp)
-                                Text(appName, color = Color(0xFFE5E5E5), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                            }
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(status, color = Color(0xFFF59E0B), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                        }
+                        if (rowApps.size < 2) {
+                            Spacer(modifier = Modifier.weight(1f))
                         }
                     }
                 }
@@ -1826,28 +1841,29 @@ fun SetupTabContent(
             .fillMaxSize()
             .verticalScroll(scrollState)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Column {
             Text(
                 text = "HARDWARE",
                 color = Color(0xFF2DD4A0),
-                fontSize = 11.sp,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 1.5.sp
             )
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Pair your Anchor",
                 color = Color(0xFFF5F2ED),
-                fontSize = 24.sp,
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = "Four steps. One ritual. Then the Bank is live.",
                 color = Color(0xFF888888),
-                fontSize = 13.sp
+                fontSize = 15.sp
             )
         }
 
@@ -1857,13 +1873,13 @@ fun SetupTabContent(
                 .fillMaxWidth()
                 .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
                 .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(16.dp)
+                .padding(18.dp)
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "NO. 0042 • EDITION ONE",
                     color = Color(0xFF2DD4A0),
-                    fontSize = 11.sp,
+                    fontSize = 13.sp,
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Bold
                 )
@@ -1873,19 +1889,19 @@ fun SetupTabContent(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(80.dp)
+                        .height(90.dp)
                         .background(Color(0xFF141414), RoundedCornerShape(8.dp))
                         .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp)),
                     contentAlignment = Alignment.Center
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("┌────────────────────────┐", color = Color(0xFF444444), fontSize = 10.sp, fontFamily = FontFamily.Monospace)
-                        Text("│      NFC TAP ZONE      │", color = Color(0xFF888888), fontSize = 10.sp, fontFamily = FontFamily.Monospace)
-                        Text("└────────────────────────┘", color = Color(0xFF444444), fontSize = 10.sp, fontFamily = FontFamily.Monospace)
+                        Text("┌────────────────────────┐", color = Color(0xFF444444), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
+                        Text("│      NFC TAP ZONE      │", color = Color(0xFFBBBBBB), fontSize = 11.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                        Text("└────────────────────────┘", color = Color(0xFF444444), fontSize = 11.sp, fontFamily = FontFamily.Monospace)
                     }
                 }
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
@@ -1895,10 +1911,10 @@ fun SetupTabContent(
                         "📶 NFC" to "Daily enforcement"
                     ).forEach { (a, b) ->
                         Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                            Text(a.split(" ")[0], fontSize = 11.sp)
+                            Text(a.split(" ")[0], fontSize = 13.sp)
                             Column {
-                                Text(a.split(" ")[1], color = Color(0xFFE5E5E5), fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                                Text(b, color = Color(0xFF888888), fontSize = 11.sp)
+                                Text(a.split(" ")[1], color = Color(0xFFE5E5E5), fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                                Text(b, color = Color(0xFF888888), fontSize = 12.sp)
                             }
                         }
                     }
@@ -1907,7 +1923,7 @@ fun SetupTabContent(
         }
 
         // 2. Interactive Steps Workflow list
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
             val stepsData = listOf(
                 StepInfo(1, "Place Anchor on desk", "Premium tempered glass • soft-touch base • embedded NFC + QR decal."),
                 StepInfo(2, "Scan QR to install Bank", "QR is for onboarding. NFC is for enforcement."),
@@ -1929,7 +1945,7 @@ fun SetupTabContent(
                             RoundedCornerShape(8.dp)
                         )
                         .background(if (isActive) Color(0x052DD4A0) else Color(0x02FFFFFF), shape = RoundedCornerShape(8.dp))
-                        .padding(12.dp)
+                        .padding(14.dp)
                 ) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -1937,29 +1953,29 @@ fun SetupTabContent(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Row(
-                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
                             modifier = Modifier.weight(1f),
                             verticalAlignment = Alignment.Top
                         ) {
                             Box(
                                 modifier = Modifier
-                                    .size(24.dp)
+                                    .size(28.dp)
                                     .background(
                                         color = if (isActive || isDone) Color(0xFF2DD4A0).copy(alpha = 0.2f) else Color(0xFF1E1E1E),
-                                        shape = RoundedCornerShape(12.dp)
+                                        shape = RoundedCornerShape(14.dp)
                                     ),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
                                     text = if (isDone) "✓" else "${step.number}",
                                     color = if (isActive || isDone) Color(0xFF2DD4A0) else Color(0xFF888888),
-                                    fontSize = 11.sp,
+                                    fontSize = 13.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                             }
                             Column {
-                                Text(step.title, color = Color(0xFFE5E5E5), fontSize = 14.sp, fontWeight = FontWeight.Bold)
-                                Text(step.subtitle, color = Color(0xFF888888), fontSize = 12.sp)
+                                Text(step.title, color = Color(0xFFE5E5E5), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                                Text(step.subtitle, color = Color(0xFF888888), fontSize = 14.sp)
                             }
                         }
 
@@ -1977,10 +1993,10 @@ fun SetupTabContent(
                                 },
                                 shape = RoundedCornerShape(6.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2DD4A0), contentColor = Color(0xFF0A0A0A)),
-                                modifier = Modifier.height(28.dp),
-                                contentPadding = PaddingValues(horizontal = 8.dp)
+                                modifier = Modifier.height(36.dp),
+                                contentPadding = PaddingValues(horizontal = 12.dp)
                             ) {
-                                Text(if (step.number == 3) "PAIR" else "SIMULATE", fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                Text(if (step.number == 3) "PAIR" else "SIMULATE", fontSize = 13.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                     }
