@@ -9,6 +9,17 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+        
+    - name: Restore Keystore File
+      run: |
+        if [ -f "debug.keystore.base64" ]; then
+          base64 -d debug.keystore.base64 > debug.keystore
+          echo "Keystore restored from base64 file."
+        else
+          echo "Base64 file not found, creating a blank placeholder."
+          touch debug.keystore
+        fi
+
     - name: Build with Gradle
       run: |
         if [ -f "./gradlew" ]; then
@@ -19,6 +30,7 @@ jobs:
         else
           gradle assembleDebug
         fi
+        
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
