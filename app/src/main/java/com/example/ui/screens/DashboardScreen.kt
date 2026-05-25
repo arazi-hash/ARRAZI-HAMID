@@ -138,18 +138,18 @@ fun DashboardScreen(
                             modifier = Modifier
                                 .weight(1f)
                                 .clickable { selectedTab = tabId }
-                                .padding(vertical = 4.dp)
+                                .padding(vertical = 8.dp) // comfortable, robust touch target!
                                 .testTag("tab_$tabId")
                         ) {
                             Text(
                                 text = emoji,
-                                fontSize = if (isSelected) 20.sp else 16.sp
+                                fontSize = if (isSelected) 26.sp else 22.sp // larger emojis!
                             )
-                            Spacer(modifier = Modifier.height(2.dp))
+                            Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text = label,
                                 color = if (isSelected) Color(0xFF2DD4A0) else Color(0xFF888888),
-                                fontSize = 13.sp,
+                                fontSize = 14.sp, // slightly more readable text label size
                                 fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                                 fontFamily = FontFamily.Monospace,
                                 letterSpacing = 0.5.sp
@@ -178,56 +178,88 @@ fun DashboardScreen(
                 .background(Color(0xFF0A0A0A))
         ) {
             
-            // ---------------- HEADER SECTION (Matches Lovable exactly) ----------------
+            // ---------------- HEADER SECTION (Outfit Black Cybernetic HUD) ----------------
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp, vertical = 12.dp),
+                    .background(Color(0xFF0F0F0F))
+                    .border(BorderStroke(1.dp, Color(0x13FFFFFF)))
+                    .padding(horizontal = 20.dp, vertical = 18.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    // Microchip Cybernetic Anchor Badge
+                    Box(
+                        modifier = Modifier
+                            .padding(end = 12.dp)
+                            .size(44.dp)
+                            .background(Color(0xFF141414), shape = RoundedCornerShape(8.dp))
+                            .border(BorderStroke(1.5.dp, Color(0xFF2DD4A0)), shape = RoundedCornerShape(8.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
                         Text(
                             text = "⚓", 
-                            fontSize = 16.sp,
-                            modifier = Modifier.padding(end = 4.dp)
+                            fontSize = 24.sp
                         )
+                    }
+                    
+                    Column {
                         Text(
                             text = "ANALOG ANCHOR",
                             color = Color(0xFFF5F2ED),
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Black, // Outfit Black styling
                             fontFamily = FontFamily.SansSerif,
-                            letterSpacing = 1.sp
+                            letterSpacing = 1.5.sp
                         )
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .width(16.dp)
+                                    .height(1.dp)
+                                    .background(Color(0xFF2DD4A0).copy(alpha = 0.5f))
+                            )
+                            Text(
+                                text = "PRACTICAL MINIMALISM",
+                                color = Color(0xFF2DD4A0),
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily.Monospace,
+                                letterSpacing = 2.sp
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .width(16.dp)
+                                    .height(1.dp)
+                                    .background(Color(0xFF2DD4A0).copy(alpha = 0.5f))
+                            )
+                        }
                     }
-                    Text(
-                        text = "PRACTICAL MINIMALISM",
-                        color = Color(0xFF888888),
-                        fontSize = 12.sp,
-                        fontFamily = FontFamily.Monospace,
-                        letterSpacing = 1.5.sp
-                    )
                 }
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    // English / Arabic toggler Badge
+                    // English / Arabic toggler Badge (Larger and easier to tap)
                     Row(
                         modifier = Modifier
                             .background(Color(0xFF1A1A1A), RoundedCornerShape(6.dp))
-                            .border(BorderStroke(1.dp, Color(0x1AFFFFFF)), RoundedCornerShape(6.dp))
-                            .padding(horizontal = 6.dp, vertical = 3.dp)
+                            .border(BorderStroke(1.dp, Color(0x33FFFFFF)), RoundedCornerShape(6.dp))
+                            .padding(horizontal = 8.dp, vertical = 6.dp)
                             .clickable { isEnglish = !isEnglish },
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
                             text = if (isEnglish) "EN" else "عربي",
                             color = Color(0xFF2DD4A0),
-                            fontSize = 13.sp,
+                            fontSize = 14.sp,
+                            fontFamily = FontFamily.Monospace,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -235,24 +267,24 @@ fun DashboardScreen(
                     // System local clock + Pulse dot
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
                     ) {
                         Box(
                             modifier = Modifier
-                                .width(6.dp)
-                                .height(6.dp)
-                                .background(Color(0xFF2DD4A0), shape = RoundedCornerShape(3.dp))
+                                .width(8.dp)
+                                .height(8.dp)
+                                .background(Color(0xFF2DD4A0), shape = RoundedCornerShape(4.dp))
                         )
                         Text(
                             text = systemTime.ifEmpty { "18:09" },
-                            color = Color(0xFFE5E5E5),
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Medium,
+                            color = Color(0xFFF5F2ED),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Monospace
                         )
                     }
 
-                    // Redundant admin menu for re-testing
+                    // Redundant admin menu for re-testing (Enlarged)
                     IconButton(
                         onClick = {
                             viewModel.resetFounderPanel()
@@ -260,10 +292,10 @@ fun DashboardScreen(
                             Toast.makeText(context, "All parameters system reset.", Toast.LENGTH_SHORT).show()
                         },
                         modifier = Modifier
-                            .size(24.dp)
+                            .size(36.dp)
                             .testTag("admin_reset_icon")
                     ) {
-                        Text("⚙️", fontSize = 12.sp)
+                        Text("⚙️", fontSize = 18.sp)
                     }
                 }
             }
@@ -504,31 +536,31 @@ fun BankTabContent(
                 Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(Color(0x0DFFFFFF)))
                 Spacer(modifier = Modifier.height(14.dp))
 
-                // Stats row
+                // Stats row (Enlarged icons)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🔥", fontSize = 14.sp)
-                            Spacer(modifier = Modifier.width(4.dp))
+                            Text("🔥", fontSize = 20.sp)
+                            Spacer(modifier = Modifier.width(6.dp))
                             Text("12d", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
                         Text("STREAK", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🛡️", fontSize = 14.sp)
-                            Spacer(modifier = Modifier.width(4.dp))
+                            Text("🛡️", fontSize = 20.sp)
+                            Spacer(modifier = Modifier.width(6.dp))
                             Text(if (isLocked) "Closed" else "Open", color = Color(0xFF2DD4A0), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
                         Text("ACCESS", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🕌", fontSize = 14.sp)
-                            Spacer(modifier = Modifier.width(4.dp))
+                            Text("🕌", fontSize = 20.sp)
+                            Spacer(modifier = Modifier.width(6.dp))
                             Text("368h", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
                         Text("LAST FAJR", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
@@ -578,15 +610,15 @@ fun BankTabContent(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             Box(
                                 modifier = Modifier
-                                    .size(36.dp)
-                                    .background(Color(0xFF141414), RoundedCornerShape(6.dp))
-                                    .border(BorderStroke(1.dp, Color(0x0FFFFFFF)), RoundedCornerShape(6.dp)),
+                                    .size(48.dp) // Enlarged for comfortable readability
+                                    .background(Color(0xFF141414), RoundedCornerShape(8.dp))
+                                    .border(BorderStroke(1.dp, Color(0x1CFFFFFF)), RoundedCornerShape(8.dp)),
                                 contentAlignment = Alignment.Center
                             ) {
-                                Text(emoji, fontSize = 16.sp)
+                                Text(emoji, fontSize = 24.sp) // Enlarged emoji thumbnail
                             }
                             Column {
                                 Text(title, color = Color(0xFFE5E5E5), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
@@ -1959,17 +1991,17 @@ fun SetupTabContent(
                         ) {
                             Box(
                                 modifier = Modifier
-                                    .size(28.dp)
+                                    .size(36.dp)
                                     .background(
                                         color = if (isActive || isDone) Color(0xFF2DD4A0).copy(alpha = 0.2f) else Color(0xFF1E1E1E),
-                                        shape = RoundedCornerShape(14.dp)
+                                        shape = RoundedCornerShape(18.dp)
                                     ),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
                                     text = if (isDone) "✓" else "${step.number}",
                                     color = if (isActive || isDone) Color(0xFF2DD4A0) else Color(0xFF888888),
-                                    fontSize = 13.sp,
+                                    fontSize = 16.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                             }
