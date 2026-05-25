@@ -111,7 +111,7 @@ fun ProtocolScreen(
             Text(
                 text = "EVENING PROTOCOL",
                 color = MutedSilver,
-                fontSize = 12.sp,
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
                 letterSpacing = 2.sp
@@ -119,10 +119,11 @@ fun ProtocolScreen(
 
             // Let client abort before session start
             if (stageState == "TAP_1") {
-                Icon(
-                    imageVector = Icons.Default.Close,
-                    contentDescription = "Cancel protocol setup",
-                    tint = MutedSilver,
+                Text(
+                    text = "✕",
+                    color = MutedSilver,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier
                         .clickable { onNavigateToDashboard() }
                         .testTag("exit_protocol_setup")
@@ -139,7 +140,7 @@ fun ProtocolScreen(
                     modifier = Modifier.border(1.dp, SignalAmber, RoundedCornerShape(8.dp)),
                     contentPadding = ButtonDefaults.ContentPadding
                 ) {
-                    Text("Stop", color = SignalAmber, fontSize = 11.sp)
+                    Text("Stop", color = SignalAmber, fontSize = 13.sp)
                 }
             }
         }
@@ -168,7 +169,7 @@ fun ProtocolScreen(
                         Text(
                             text = "Set the phone face-down on the Glass Organizer. Tap to lock active distractions.",
                             color = MutedSilver,
-                            fontSize = 12.sp,
+                            fontSize = 14.sp,
                             textAlign = TextAlign.Center
                         )
 
@@ -200,7 +201,7 @@ fun ProtocolScreen(
                                         text = "$min MIN",
                                         color = if (active) WarmOffWhite else MutedSilver,
                                         fontWeight = FontWeight.Bold,
-                                        fontSize = 12.sp,
+                                        fontSize = 14.sp,
                                         fontFamily = FontFamily.Monospace
                                     )
                                 }
@@ -214,12 +215,7 @@ fun ProtocolScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
-                                Icon(
-                                    imageVector = Icons.Default.Nfc,
-                                    contentDescription = "Tap 1 action",
-                                    tint = GlowGreen,
-                                    modifier = Modifier.height(40.dp).width(40.dp)
-                                )
+                                Text("📡", fontSize = 36.sp)
                                 Spacer(modifier = Modifier.height(12.dp))
                                 Text(
                                     text = "TAP 1 - COMMIT",
@@ -231,7 +227,7 @@ fun ProtocolScreen(
                                 Text(
                                     text = "Touch phone to the whiteboard NFC sticker decal to start the clock.",
                                     color = MutedSilver,
-                                    fontSize = 11.sp,
+                                    fontSize = 13.sp,
                                     textAlign = TextAlign.Center
                                 )
 
@@ -261,12 +257,7 @@ fun ProtocolScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.CompassCalibration,
-                            contentDescription = "Gyro active",
-                            tint = GlowGreen,
-                            modifier = Modifier.height(44.dp).width(44.dp)
-                        )
+                        Text("🌀", fontSize = 36.sp)
                         Spacer(modifier = Modifier.height(12.dp))
                         Text(
                             text = "FOCUS BLOCK ACTIVE",
@@ -279,7 +270,7 @@ fun ProtocolScreen(
                         Text(
                             text = "🚭 WILLPOWER IS A MYTH. LEAVE THE PHONE HANDS-FREE FLAT.",
                             color = MutedSilver,
-                            fontSize = 11.sp,
+                            fontSize = 13.sp,
                             textAlign = TextAlign.Center
                         )
 
@@ -303,7 +294,7 @@ fun ProtocolScreen(
                         Text(
                             text = "🚨 SENSOR ACTIVE: Rest the phone flat on the whiteboard Anchor. Any gyroscope tilting or physical handling instantly triggers lock penalty.",
                             color = SignalAmber,
-                            fontSize = 11.sp,
+                            fontSize = 13.sp,
                             textAlign = TextAlign.Center,
                             modifier = Modifier.padding(horizontal = 12.dp)
                         )
@@ -333,9 +324,9 @@ fun ProtocolScreen(
                                 modifier = Modifier.testTag("accelerate_timer_btn")
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Icon(imageVector = Icons.Default.Speed, contentDescription = "Speed up clock", tint = GlowGreen, modifier = Modifier.height(16.dp).width(16.dp))
+                                    Text("⚡", fontSize = 14.sp)
                                     Spacer(modifier = Modifier.width(4.dp))
-                                    Text("Accelerate Time", color = WarmOffWhite, fontSize = 11.sp)
+                                    Text("Accelerate Time", color = WarmOffWhite, fontSize = 13.sp)
                                 }
                             }
 
@@ -350,9 +341,9 @@ fun ProtocolScreen(
                                 modifier = Modifier.testTag("trigger_gyro_movement_btn")
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Icon(imageVector = Icons.Default.Loop, contentDescription = "Simulate tilt", tint = SignalAmber, modifier = Modifier.height(16.dp).width(16.dp))
+                                    Text("🚨", fontSize = 14.sp)
                                     Spacer(modifier = Modifier.width(4.dp))
-                                    Text("Simulate Tilting", color = WarmOffWhite, fontSize = 11.sp)
+                                    Text("Simulate Tilting", color = WarmOffWhite, fontSize = 13.sp)
                                 }
                             }
                         }
@@ -375,7 +366,7 @@ fun ProtocolScreen(
                         Text(
                             text = "Verification ready. Tap the Anchor decal to conclude daily accountability.",
                             color = WarmSilverText,
-                            fontSize = 12.sp,
+                            fontSize = 14.sp,
                             textAlign = TextAlign.Center
                         )
 
@@ -386,12 +377,7 @@ fun ProtocolScreen(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
-                                Icon(
-                                    imageVector = Icons.Default.Nfc,
-                                    contentDescription = "Tap 2 complete action",
-                                    tint = GlowGreen,
-                                    modifier = Modifier.height(40.dp).width(40.dp)
-                                )
+                                Text("✅", fontSize = 36.sp)
                                 Spacer(modifier = Modifier.height(12.dp))
                                 Text(
                                     text = "TAP 2 - COMPLETE",
@@ -403,7 +389,7 @@ fun ProtocolScreen(
                                 Text(
                                     text = "Place phone on the whiteboard NFC Anchor to write the completed log and claim rewards.",
                                     color = MutedSilver,
-                                    fontSize = 11.sp,
+                                    fontSize = 13.sp,
                                     textAlign = TextAlign.Center
                                 )
 
@@ -432,7 +418,7 @@ fun ProtocolScreen(
         Text(
             text = "Digital discipline made absolute. Powering focus in Bahrain.",
             color = MutedSilver,
-            fontSize = 10.sp,
+            fontSize = 12.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )

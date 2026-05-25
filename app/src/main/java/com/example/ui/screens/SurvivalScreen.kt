@@ -72,12 +72,10 @@ fun SurvivalScreen(
     ) {
         Spacer(modifier = Modifier.height(24.dp))
 
-        // WARNING DECAL LOCK HEADER
-        Icon(
-            imageVector = Icons.Default.Warning,
-            contentDescription = "Active lock warning",
-            tint = SignalAmber,
-            modifier = Modifier.height(48.dp).width(48.dp)
+        Text(
+            text = "🚨",
+            fontSize = 44.sp,
+            modifier = Modifier.padding(bottom = 12.dp)
         )
         Spacer(modifier = Modifier.height(12.dp))
 
@@ -92,7 +90,7 @@ fun SurvivalScreen(
         Text(
             text = "One action restores it.",
             color = SignalAmber,
-            fontSize = 14.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Bold
         )
 
@@ -124,7 +122,7 @@ fun SurvivalScreen(
                 Text(
                     text = "Verify your presence at your Sanctuary to restore your Reserve Points and reopen access.",
                     color = WarmSilverText,
-                    fontSize = 12.sp,
+                    fontSize = 14.sp,
                     textAlign = TextAlign.Center
                 )
 
@@ -148,7 +146,7 @@ fun SurvivalScreen(
                         .testTag("verify_gps_btn")
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(imageVector = Icons.Default.Place, contentDescription = "Query coordinates", tint = SignalAmber)
+                        Text("📍", fontSize = 16.sp)
                         Spacer(modifier = Modifier.width(8.dp))
                         Text("I Am Here — Verify", color = SignalAmber, fontWeight = FontWeight.Bold)
                     }
@@ -181,7 +179,7 @@ fun SurvivalScreen(
         Text(
             text = "ANALOG ACTIONS TO TAKE NOW",
             color = MutedSilver,
-            fontSize = 11.sp,
+            fontSize = 13.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.Monospace,
             letterSpacing = 1.sp,
@@ -202,8 +200,8 @@ fun SurvivalScreen(
                 Text("📖", fontSize = 20.sp)
                 Spacer(modifier = Modifier.width(12.dp))
                 Column {
-                    Text("Current Journal Prompt", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                    Text("Write one page about what you are avoiding.", color = MutedSilver, fontSize = 11.sp)
+                    Text("Current Journal Prompt", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                    Text("Write one page about what you are avoiding.", color = MutedSilver, fontSize = 13.sp)
                 }
             }
 
@@ -219,8 +217,8 @@ fun SurvivalScreen(
                 Text("📚", fontSize = 20.sp)
                 Spacer(modifier = Modifier.width(12.dp))
                 Column {
-                    Text("Unplugged Literary Time", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                    Text("Read one chapter of your physical book.", color = MutedSilver, fontSize = 11.sp)
+                    Text("Unplugged Literary Time", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                    Text("Read one chapter of your physical book.", color = MutedSilver, fontSize = 13.sp)
                 }
             }
 
@@ -236,8 +234,8 @@ fun SurvivalScreen(
                 Text("🕌", fontSize = 20.sp)
                 Spacer(modifier = Modifier.width(12.dp))
                 Column {
-                    Text("Attend Secondary Devotions", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                    Text("Attend the next prayer at your Sanctuary.", color = MutedSilver, fontSize = 11.sp)
+                    Text("Attend Secondary Devotions", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                    Text("Attend the next prayer at your Sanctuary.", color = MutedSilver, fontSize = 13.sp)
                 }
             }
         }
@@ -248,16 +246,16 @@ fun SurvivalScreen(
         GlassCard(borderColor = ObsidianBorder) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(imageVector = Icons.Default.Info, contentDescription = "Spiritual tip", tint = GlowGreen)
+                    Text("💡", fontSize = 16.sp)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("First-Light Focus Protocol", color = GlowGreen, fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                    Text("First-Light Focus Protocol", color = GlowGreen, fontWeight = FontWeight.Bold, fontSize = 15.sp)
                 }
                 Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = "Fajr / sitting in the mosque between Maghrib prayer and Isha prayer earns the most, but social apps stay locked until after sunrise to protect first-light focus.",
                     color = MutedSilver,
-                    fontSize = 11.sp,
-                    lineHeight = 16.sp
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp
                 )
             }
         }
@@ -278,16 +276,14 @@ fun SurvivalScreen(
             Text(
                 text = "Unlocking the Survival Kit Toolkit",
                 color = GlowGreen,
-                fontSize = 12.sp,
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 textDecoration = TextDecoration.Underline
             )
             Spacer(modifier = Modifier.width(4.dp))
-            Icon(
-                imageVector = Icons.Default.Launch,
-                contentDescription = "Launch external toolkit link",
-                tint = GlowGreen,
-                modifier = Modifier.height(14.dp).width(14.dp)
+            Text(
+                text = "🔗",
+                fontSize = 12.sp
             )
         }
 

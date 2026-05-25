@@ -96,7 +96,7 @@ fun OnboardingScreen(
                 Text(
                     text = "CLIENT ONBOARDING",
                     color = MutedSilver,
-                    fontSize = 12.sp,
+                    fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Monospace,
                     letterSpacing = 2.sp
@@ -104,7 +104,7 @@ fun OnboardingScreen(
                 Text(
                     text = "$currentStep of 3",
                     color = GlowGreen,
-                    fontSize = 12.sp,
+                    fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Monospace
                 )
@@ -136,12 +136,7 @@ fun OnboardingScreen(
                     1 -> {
                         // Card 1: NFC Tag Registration
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Icon(
-                                imageVector = Icons.Default.Nfc,
-                                contentDescription = "NFC Registration",
-                                tint = GlowGreen,
-                                modifier = Modifier.height(48.dp).width(48.dp)
-                            )
+                            Text("📡", fontSize = 48.sp)
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
                                 text = "NFC Tag Registration",
@@ -153,7 +148,7 @@ fun OnboardingScreen(
                             Text(
                                 text = "Place your physical Anchor Tag on the back of this phone. This decal binds your phone to the physical glass whiteboard desk Anchor.",
                                 color = MutedSilver,
-                                fontSize = 13.sp,
+                                fontSize = 15.sp,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
@@ -168,21 +163,21 @@ fun OnboardingScreen(
                                         Text(
                                             text = if (isNfcScanning) "Listening for NFC physical tap..." else "Anchor Decal Unregistered",
                                             color = SignalAmber,
-                                            fontSize = 14.sp,
+                                            fontSize = 16.sp,
                                             fontWeight = FontWeight.SemiBold
                                         )
                                     } else {
                                         Text(
                                             text = "Anchor Bound Successfully",
                                             color = GlowGreen,
-                                            fontSize = 14.sp,
+                                            fontSize = 16.sp,
                                             fontWeight = FontWeight.Bold
                                         )
                                         Spacer(modifier = Modifier.height(4.dp))
                                         Text(
                                             text = "ID: $nfcTagId",
                                             color = MutedSilver,
-                                            fontSize = 12.sp,
+                                            fontSize = 14.sp,
                                             fontFamily = FontFamily.Monospace
                                         )
                                     }
@@ -210,12 +205,7 @@ fun OnboardingScreen(
                     2 -> {
                         // Card 2: Sanctuary Setup
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Icon(
-                                imageVector = Icons.Default.Place,
-                                contentDescription = "Sanctuary setup",
-                                tint = GlowGreen,
-                                modifier = Modifier.height(48.dp).width(48.dp)
-                            )
+                            Text("📍", fontSize = 48.sp)
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
                                 text = "Choose Your Sanctuary",
@@ -227,7 +217,7 @@ fun OnboardingScreen(
                             Text(
                                 text = "This is your physical domain of digital redemption. If you face an evening lock, physically traveling to this sanctuary is the only way to restore app access.",
                                 color = MutedSilver,
-                                fontSize = 12.sp,
+                                fontSize = 14.sp,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier.padding(horizontal = 8.dp)
                             )
@@ -255,11 +245,11 @@ fun OnboardingScreen(
                                     Text("🕌", fontSize = 24.sp)
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Column {
-                                        Text("The Mosque", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                                        Text("The Mosque", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 16.sp)
                                         Text(
                                             "Highest redemption value. Fajr earns bonus points.",
                                             color = MutedSilver,
-                                            fontSize = 11.sp
+                                            fontSize = 13.sp
                                         )
                                     }
                                 }
@@ -284,8 +274,8 @@ fun OnboardingScreen(
                                     Text("🏞️", fontSize = 24.sp)
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Column {
-                                        Text("The Community Park", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                                        Text("Standard redemption coordinates in nature.", color = MutedSilver, fontSize = 11.sp)
+                                        Text("The Community Park", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                                        Text("Standard redemption coordinates in nature.", color = MutedSilver, fontSize = 13.sp)
                                     }
                                 }
 
@@ -309,8 +299,8 @@ fun OnboardingScreen(
                                     Text("🏃", fontSize = 24.sp)
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Column {
-                                        Text("Refuge Running Trail", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 14.sp)
-                                        Text("Active physical exercise redemption space.", color = MutedSilver, fontSize = 11.sp)
+                                        Text("Refuge Running Trail", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                                        Text("Active physical exercise redemption space.", color = MutedSilver, fontSize = 13.sp)
                                     }
                                 }
                             }
@@ -340,12 +330,7 @@ fun OnboardingScreen(
                     3 -> {
                         // Card 3: Evening Protocol Time Selection
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Icon(
-                                imageVector = Icons.Default.Schedule,
-                                contentDescription = "Protocol Time",
-                                tint = GlowGreen,
-                                modifier = Modifier.height(48.dp).width(48.dp)
-                            )
+                            Text("⏱️", fontSize = 48.sp)
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
                                 text = "Evening Protocol Time",
@@ -357,7 +342,7 @@ fun OnboardingScreen(
                             Text(
                                 text = "Set the deadline of accountability. You must complete the Two-Tap Whiteboard session on your physical Anchor daily before this hour to bypass penalties.",
                                 color = MutedSilver,
-                                fontSize = 12.sp,
+                                fontSize = 14.sp,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier.padding(horizontal = 8.dp)
                             )
@@ -371,7 +356,7 @@ fun OnboardingScreen(
                                     Text(
                                         text = "Accountability Deadline",
                                         color = MutedSilver,
-                                        fontSize = 12.sp
+                                        fontSize = 14.sp
                                     )
                                     Spacer(modifier = Modifier.height(8.dp))
                                     
@@ -393,12 +378,12 @@ fun OnboardingScreen(
                                         horizontalArrangement = Arrangement.SpaceEvenly
                                     ) {
                                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                            Text("Hour", fontSize = 11.sp, color = MutedSilver)
+                                            Text("Hour", fontSize = 13.sp, color = MutedSilver)
                                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                                Icon(
-                                                    imageVector = Icons.Default.ChevronLeft,
-                                                    contentDescription = "Dec Hour",
-                                                    tint = GlowGreen,
+                                                Text(
+                                                    text = "◀",
+                                                    color = GlowGreen,
+                                                    fontSize = 18.sp,
                                                     modifier = Modifier.clickable {
                                                         if (selectedHour > 18) selectedHour -= 1
                                                     }
@@ -410,10 +395,10 @@ fun OnboardingScreen(
                                                     fontWeight = FontWeight.Bold,
                                                     modifier = Modifier.padding(horizontal = 8.dp)
                                                 )
-                                                Icon(
-                                                    imageVector = Icons.Default.ChevronRight,
-                                                    contentDescription = "Inc Hour",
-                                                    tint = GlowGreen,
+                                                Text(
+                                                    text = "▶",
+                                                    color = GlowGreen,
+                                                    fontSize = 18.sp,
                                                     modifier = Modifier.clickable {
                                                         if (selectedHour < 23) selectedHour += 1
                                                     }
@@ -422,12 +407,12 @@ fun OnboardingScreen(
                                         }
 
                                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                            Text("Minute", fontSize = 11.sp, color = MutedSilver)
+                                            Text("Minute", fontSize = 13.sp, color = MutedSilver)
                                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                                Icon(
-                                                    imageVector = Icons.Default.ChevronLeft,
-                                                    contentDescription = "Dec Min",
-                                                    tint = GlowGreen,
+                                                Text(
+                                                    text = "◀",
+                                                    color = GlowGreen,
+                                                    fontSize = 18.sp,
                                                     modifier = Modifier.clickable {
                                                         if (selectedMinute >= 15) selectedMinute -= 15
                                                     }
@@ -439,10 +424,10 @@ fun OnboardingScreen(
                                                     fontWeight = FontWeight.Bold,
                                                     modifier = Modifier.padding(horizontal = 8.dp)
                                                 )
-                                                Icon(
-                                                    imageVector = Icons.Default.ChevronRight,
-                                                    contentDescription = "Inc Min",
-                                                    tint = GlowGreen,
+                                                Text(
+                                                    text = "▶",
+                                                    color = GlowGreen,
+                                                    fontSize = 18.sp,
                                                     modifier = Modifier.clickable {
                                                         if (selectedMinute <= 30) selectedMinute += 15
                                                     }
@@ -496,10 +481,10 @@ fun OnboardingScreen(
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("Continue", fontWeight = FontWeight.Bold)
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Next")
-                    }
+                                        Text("Continue", fontWeight = FontWeight.Bold)
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text("➔", color = WarmOffWhite, fontSize = 14.sp)
+                                    }
                 }
             } else {
                 // Final begin button!

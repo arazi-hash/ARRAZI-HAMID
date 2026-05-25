@@ -109,20 +109,19 @@ fun FounderScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Icon(
-                imageVector = Icons.Default.Lock,
-                contentDescription = "Access restricted",
-                tint = MutedSilver,
+            Text(
+                text = "🔒",
+                fontSize = 48.sp,
                 modifier = Modifier.padding(16.dp)
             )
 
             Text(
-                text = "FOUNDER INSTALLATION PANEL",
+                text = "accountability/support setup",
                 color = WarmOffWhite,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Monospace,
-                letterSpacing = 2.sp,
+                letterSpacing = 1.sp,
                 textAlign = TextAlign.Center
             )
 
@@ -131,7 +130,7 @@ fun FounderScreen(
             Text(
                 text = "Password-protected. Managed strictly by Ar-razi during white-glove home configuration.",
                 color = MutedSilver,
-                fontSize = 12.sp,
+                fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
@@ -167,7 +166,7 @@ fun FounderScreen(
                 Text(
                     text = "Incorrect credentials. Verification refused.",
                     color = SignalAmber,
-                    fontSize = 12.sp,
+                    fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
                 )
             }
@@ -216,7 +215,7 @@ fun FounderScreen(
                 Text(
                     text = "White-glove locking environment setup. Ensure all steps are resolved correctly.",
                     color = MutedSilver,
-                    fontSize = 12.sp,
+                    fontSize = 14.sp,
                 )
 
                 Spacer(modifier = Modifier.height(24.dp))
@@ -232,11 +231,7 @@ fun FounderScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
-                            Icon(
-                                imageVector = Icons.Default.Shield,
-                                contentDescription = "Device admin config",
-                                tint = if (deviceAdminActive) GlowGreen else SignalAmber
-                            )
+                            Text("🛡️", fontSize = 20.sp)
                             Spacer(modifier = Modifier.width(12.dp))
                             Column {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -253,7 +248,7 @@ fun FounderScreen(
                                 Text(
                                     text = "Guarantees physical security bypass restrictions.",
                                     color = MutedSilver,
-                                    fontSize = 11.sp
+                                    fontSize = 13.sp
                                 )
                             }
                         }
@@ -284,7 +279,7 @@ fun FounderScreen(
                             Text(
                                 if (deviceAdminActive) "Granted" else "Grant",
                                 color = if (deviceAdminActive) MutedSilver else WarmOffWhite,
-                                fontSize = 12.sp,
+                                fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold
                             )
                         }
@@ -302,11 +297,7 @@ fun FounderScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
-                            Icon(
-                                imageVector = Icons.Default.CompassCalibration,
-                                contentDescription = "Accessibility active config",
-                                tint = if (accessibilityActive) GlowGreen else SignalAmber
-                            )
+                            Text("🌀", fontSize = 20.sp)
                             Spacer(modifier = Modifier.width(12.dp))
                             Column {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -323,7 +314,7 @@ fun FounderScreen(
                                 Text(
                                     text = "Interceptors detect distraction application launches.",
                                     color = MutedSilver,
-                                    fontSize = 11.sp
+                                    fontSize = 13.sp
                                 )
                             }
                         }
@@ -344,8 +335,8 @@ fun FounderScreen(
                             Text(
                                 if (accessibilityActive) "Active" else "Enable",
                                 color = if (accessibilityActive) MutedSilver else WarmOffWhite,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold
+                                        fontSize = 14.sp,
+                                        fontWeight = FontWeight.Bold
                             )
                         }
                     }
@@ -363,11 +354,7 @@ fun FounderScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
-                                Icon(
-                                    imageVector = Icons.Default.Pin,
-                                    contentDescription = "Uninstall pin setup",
-                                    tint = if (uninstallPinSet) GlowGreen else SignalAmber
-                                )
+                                Text("🔑", fontSize = 20.sp)
                                 Spacer(modifier = Modifier.width(12.dp))
                                 Column {
                                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -384,7 +371,7 @@ fun FounderScreen(
                                     Text(
                                         text = "4-digit key required to disable or uninstall.",
                                         color = MutedSilver,
-                                        fontSize = 11.sp
+                                        fontSize = 13.sp
                                     )
                                 }
                             }
@@ -435,7 +422,7 @@ fun FounderScreen(
                                 shape = RoundedCornerShape(8.dp),
                                 modifier = Modifier.testTag("set_uninstall_pin_button")
                             ) {
-                                Text("Save PIN", fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                                Text("Save PIN", fontSize = 14.sp, fontWeight = FontWeight.Bold)
                             }
                         }
                     }
@@ -476,7 +463,7 @@ fun FounderScreen(
                 Text(
                     text = "🚨 SEALLING LOCKS THIS PANEL FOREVER. IT TRANSITIONS TO THE CLIENT PORTAL.",
                     color = MutedSilver,
-                    fontSize = 10.sp,
+                    fontSize = 12.sp,
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.fillMaxWidth()
