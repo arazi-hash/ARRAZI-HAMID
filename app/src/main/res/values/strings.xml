@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Analog Anchor</string>
+    <string name="device_admin_description">Enacts physical lock and discipline status for the Analog Anchor board.</string>
+</resources>
