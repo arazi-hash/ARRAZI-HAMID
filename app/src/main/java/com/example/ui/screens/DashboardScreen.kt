@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.data.SessionLog
 import com.example.viewmodel.AnchorViewModel
+import com.example.ui.theme.*
 import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -169,21 +170,21 @@ fun DashboardScreen(
                 }
             }
         },
-        containerColor = Color(0xFF0A0A0A)
+        containerColor = ObsidianBg
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .background(Color(0xFF0A0A0A))
+                .background(ObsidianBg)
         ) {
             
             // ---------------- HEADER SECTION (Outfit Black Cybernetic HUD) ----------------
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF0F0F0F))
-                    .border(BorderStroke(1.dp, Color(0x13FFFFFF)))
+                    .background(ObsidianBg)
+                    .border(BorderStroke(1.dp, ObsidianBorder))
                     .padding(horizontal = 20.dp, vertical = 18.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
@@ -194,8 +195,8 @@ fun DashboardScreen(
                         modifier = Modifier
                             .padding(end = 12.dp)
                             .size(44.dp)
-                            .background(Color(0xFF141414), shape = RoundedCornerShape(8.dp))
-                            .border(BorderStroke(1.5.dp, Color(0xFF2DD4A0)), shape = RoundedCornerShape(8.dp)),
+                            .background(ObsidianSurface, shape = RoundedCornerShape(8.dp))
+                            .border(BorderStroke(1.5.dp, GlowGreen), shape = RoundedCornerShape(8.dp)),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
@@ -207,7 +208,7 @@ fun DashboardScreen(
                     Column {
                         Text(
                             text = "ANALOG ANCHOR",
-                            color = Color(0xFFF5F2ED),
+                            color = WarmOffWhite,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Black, // Outfit Black styling
                             fontFamily = FontFamily.SansSerif,
@@ -222,11 +223,11 @@ fun DashboardScreen(
                                 modifier = Modifier
                                     .width(16.dp)
                                     .height(1.dp)
-                                    .background(Color(0xFF2DD4A0).copy(alpha = 0.5f))
+                                    .background(GlowGreen.copy(alpha = 0.5f))
                             )
                             Text(
                                 text = "PRACTICAL MINIMALISM",
-                                color = Color(0xFF2DD4A0),
+                                color = GlowGreen,
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.Monospace,
@@ -236,7 +237,7 @@ fun DashboardScreen(
                                 modifier = Modifier
                                     .width(16.dp)
                                     .height(1.dp)
-                                    .background(Color(0xFF2DD4A0).copy(alpha = 0.5f))
+                                    .background(GlowGreen.copy(alpha = 0.5f))
                             )
                         }
                     }
@@ -249,15 +250,15 @@ fun DashboardScreen(
                     // English / Arabic toggler Badge (Larger and easier to tap)
                     Row(
                         modifier = Modifier
-                            .background(Color(0xFF1A1A1A), RoundedCornerShape(6.dp))
-                            .border(BorderStroke(1.dp, Color(0x33FFFFFF)), RoundedCornerShape(6.dp))
+                            .background(ObsidianSurface, RoundedCornerShape(6.dp))
+                            .border(BorderStroke(1.dp, ObsidianBorder), RoundedCornerShape(6.dp))
                             .padding(horizontal = 8.dp, vertical = 6.dp)
                             .clickable { isEnglish = !isEnglish },
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
                             text = if (isEnglish) "EN" else "عربي",
-                            color = Color(0xFF2DD4A0),
+                            color = GlowGreen,
                             fontSize = 14.sp,
                             fontFamily = FontFamily.Monospace,
                             fontWeight = FontWeight.Bold
@@ -273,11 +274,11 @@ fun DashboardScreen(
                             modifier = Modifier
                                 .width(8.dp)
                                 .height(8.dp)
-                                .background(Color(0xFF2DD4A0), shape = RoundedCornerShape(4.dp))
+                                .background(GlowGreen, shape = RoundedCornerShape(4.dp))
                         )
                         Text(
                             text = systemTime.ifEmpty { "18:09" },
-                            color = Color(0xFFF5F2ED),
+                            color = WarmOffWhite,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Monospace
@@ -402,52 +403,51 @@ fun BankTabContent(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(24.dp)
+            .padding(16.dp)
     ) {
-        
         // 1. DayTime Access Card
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .border(BorderStroke(1.dp, Color(0x1A2DD4A0)), RoundedCornerShape(8.dp))
-                .background(Color(0x08FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(20.dp)
+                .border(BorderStroke(1.2.dp, GlowGreen.copy(alpha = 0.25f)), RoundedCornerShape(12.dp))
+                .background(ObsidianSurface, shape = RoundedCornerShape(12.dp))
+                .padding(22.dp)
         ) {
             Column {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Box(
                         modifier = Modifier
-                            .width(6.dp)
-                            .height(6.dp)
-                            .background(Color(0xFF2DD4A0), shape = RoundedCornerShape(3.dp))
+                            .width(10.dp)
+                            .height(10.dp)
+                            .background(GlowGreen, shape = RoundedCornerShape(5.dp))
                     )
                     Text(
                         text = if (isEnglish) "DAYTIME ACCESS SECURED" else "تم تأمين الدخول النهاري",
-                        color = Color(0xFF2DD4A0),
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Bold,
+                        color = GlowGreen,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.ExtraBold,
                         fontFamily = FontFamily.Monospace,
-                        letterSpacing = 1.sp
+                        letterSpacing = 1.2.sp
                     )
                 }
-                Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = if (isLocked) "The system is Locked." else "The Bank holds the line.",
-                    color = Color(0xFFF5F2ED),
-                    fontSize = 21.sp,
-                    fontWeight = FontWeight.Bold
+                    color = WarmOffWhite,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Black
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = if (isLocked) "Verification is required at your local Sanctuary to release the phone boundaries." 
                            else "Phone unlocked through standard hours. Night enforcement engages at 22:00.",
-                    color = Color(0xFFBBBBBB),
-                    fontSize = 15.sp,
-                    lineHeight = 18.sp
+                    color = WarmSilverText,
+                    fontSize = 16.sp,
+                    lineHeight = 22.sp,
+                    fontWeight = FontWeight.SemiBold
                 )
             }
         }
@@ -456,9 +456,9 @@ fun BankTabContent(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
-                .background(Color(0x08FFFFFF), shape = RoundedCornerShape(8.dp))
-                .padding(20.dp)
+                .border(BorderStroke(1.2.dp, ObsidianBorder), RoundedCornerShape(12.dp))
+                .background(ObsidianSurface, shape = RoundedCornerShape(12.dp))
+                .padding(22.dp)
         ) {
             Column {
                 Row(
@@ -469,43 +469,44 @@ fun BankTabContent(
                     Column {
                         Text(
                             text = if (isEnglish) "RESERVE BALANCE" else "رصيد الاحتياطي",
-                            color = Color(0xFF888888),
-                            fontSize = 13.sp,
-                            fontWeight = FontWeight.Bold,
+                            color = MutedSilver,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.ExtraBold,
                             fontFamily = FontFamily.Monospace,
-                            letterSpacing = 1.sp
+                            letterSpacing = 1.2.sp
                         )
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Spacer(modifier = Modifier.height(6.dp))
                         Row(
                             verticalAlignment = Alignment.Bottom,
-                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             Text(
                                 text = "$reservePoints",
-                                color = Color(0xFFF5F2ED),
-                                fontSize = 48.sp,
-                                fontWeight = FontWeight.Light
+                                color = WarmOffWhite,
+                                fontSize = 56.sp,
+                                fontWeight = FontWeight.Black
                             )
                             Text(
                                 text = "PTS",
-                                color = Color(0xFF888888),
-                                fontSize = 15.sp,
-                                modifier = Modifier.padding(bottom = 6.dp)
+                                color = MutedSilver,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(bottom = 10.dp)
                             )
                         }
                     }
                     Column(horizontalAlignment = Alignment.End) {
-                        Text(text = "CEILING", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
-                        Text(text = "200", color = Color(0xFFE5E5E5), fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                        Text(text = "CEILING", color = MutedSilver, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                        Text(text = "200", color = WarmOffWhite, fontSize = 18.sp, fontWeight = FontWeight.Black)
                     }
                 }
 
-                Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
-                // Segmented Progress Bar
+                // Segmented Progress Bar (Enlarged)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(3.dp)
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     val activeSegments = (reservePoints / 12.5).toInt().coerceIn(1, 16)
                     for (i in 1..16) {
@@ -513,64 +514,67 @@ fun BankTabContent(
                         Box(
                             modifier = Modifier
                                 .weight(1f)
-                                .height(8.dp)
+                                .height(12.dp) // Thicker for premium fidelity
                                 .background(
-                                    color = if (active) Color(0xFF2DD4A0) else Color(0xFF1E1E1E),
-                                    shape = RoundedCornerShape(1.dp)
+                                    color = if (active) GlowGreen else ObsidianBorder,
+                                    shape = RoundedCornerShape(2.dp)
                                 )
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text("EMPTY", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
-                    Text("85%", color = Color(0xFF2DD4A0), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
-                    Text("FULL", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                    Text("EMPTY", color = MutedSilver, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                    Text("85%", color = GlowGreen, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                    Text("FULL", color = MutedSilver, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
                 }
 
+                Spacer(modifier = Modifier.height(18.dp))
+                Box(modifier = Modifier.fillMaxWidth().height(1.2.dp).background(ObsidianBorder))
                 Spacer(modifier = Modifier.height(16.dp))
-                Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(Color(0x0DFFFFFF)))
-                Spacer(modifier = Modifier.height(14.dp))
 
-                // Stats row (Enlarged icons)
+                // Stats row (Enlarged icons & text weights)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🔥", fontSize = 20.sp)
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text("12d", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                            Text("🔥", fontSize = 26.sp) // Scaled up icons by 30%
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text("12d", color = WarmOffWhite, fontSize = 18.sp, fontWeight = FontWeight.Black)
                         }
-                        Text("STREAK", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text("STREAK", color = MutedSilver, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🛡️", fontSize = 20.sp)
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text(if (isLocked) "Closed" else "Open", color = Color(0xFF2DD4A0), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                            Text("🛡️", fontSize = 26.sp) // Scaled up icons by 30%
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(if (isLocked) "Closed" else "Open", color = GlowGreen, fontSize = 18.sp, fontWeight = FontWeight.Black)
                         }
-                        Text("ACCESS", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text("ACCESS", color = MutedSilver, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🕌", fontSize = 20.sp)
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text("368h", color = Color(0xFFF5F2ED), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                            Text("🕌", fontSize = 26.sp) // Scaled up icons by 30%
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text("368h", color = WarmOffWhite, fontSize = 18.sp, fontWeight = FontWeight.Black)
                         }
-                        Text("LAST FAJR", color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text("LAST FAJR", color = MutedSilver, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
                     }
                 }
             }
         }
 
         // 3. Ritual Queue
-        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -578,17 +582,18 @@ fun BankTabContent(
             ) {
                 Text(
                     text = if (isEnglish) "RITUAL QUEUE • TONIGHT" else "طابور الصلوات والطقوس الليلة",
-                    color = Color(0xFF888888),
-                    fontSize = 13.sp,
-                    fontWeight = FontWeight.Bold,
+                    color = MutedSilver,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.ExtraBold,
                     fontFamily = FontFamily.Monospace,
                     letterSpacing = 1.5.sp
                 )
                 Text(
                     text = if (isEnglish) "2 pending" else "٢ متبقي",
-                    color = Color(0xFF888888),
-                    fontSize = 13.sp,
-                    fontFamily = FontFamily.Monospace
+                    color = MutedSilver,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.Bold
                 )
             }
 
@@ -600,34 +605,35 @@ fun BankTabContent(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .border(BorderStroke(1.dp, Color(0x13FFFFFF)), RoundedCornerShape(8.dp))
-                        .background(Color(0x05FFFFFF), shape = RoundedCornerShape(8.dp))
+                        .border(BorderStroke(1.2.dp, ObsidianBorder), RoundedCornerShape(12.dp))
+                        .background(ObsidianSurface, shape = RoundedCornerShape(12.dp))
                         .clickable { if (emoji == "🌙") onStartProtocolClick() else onCheckInClick() }
-                        .padding(14.dp)
+                        .padding(16.dp)
                 ) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
                             Box(
                                 modifier = Modifier
-                                    .size(48.dp) // Enlarged for comfortable readability
-                                    .background(Color(0xFF141414), RoundedCornerShape(8.dp))
-                                    .border(BorderStroke(1.dp, Color(0x1CFFFFFF)), RoundedCornerShape(8.dp)),
+                                    .size(54.dp) // Large and comfortable
+                                    .background(ObsidianBg, RoundedCornerShape(10.dp))
+                                    .border(BorderStroke(1.2.dp, ObsidianBorder), RoundedCornerShape(10.dp)),
                                 contentAlignment = Alignment.Center
                             ) {
-                                Text(emoji, fontSize = 24.sp) // Enlarged emoji thumbnail
+                                Text(emoji, fontSize = 28.sp) // Up by 30%!
                             }
                             Column {
-                                Text(title, color = Color(0xFFE5E5E5), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-                                Text(time, color = Color(0xFF888888), fontSize = 13.sp, fontFamily = FontFamily.Monospace)
+                                Text(title, color = WarmOffWhite, fontSize = 17.sp, fontWeight = FontWeight.ExtraBold)
+                                Spacer(modifier = Modifier.height(2.dp))
+                                Text(time, color = WarmSilverText, fontSize = 14.sp, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.SemiBold)
                             }
                         }
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Text(reward, color = Color(0xFF2DD4A0), fontSize = 15.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
-                            Text("➔", color = Color(0xFF888888), fontSize = 14.sp)
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Text(reward, color = GlowGreen, fontSize = 17.sp, fontWeight = FontWeight.Black, fontFamily = FontFamily.Monospace)
+                            Text("➔", color = MutedSilver, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                 }

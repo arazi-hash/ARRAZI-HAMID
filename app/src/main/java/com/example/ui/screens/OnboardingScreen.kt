@@ -48,14 +48,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ui.components.GlassCard
-import com.example.ui.theme.GlowGreen
-import com.example.ui.theme.MutedSilver
-import com.example.ui.theme.ObsidianBg
-import com.example.ui.theme.ObsidianBorder
-import com.example.ui.theme.RefinedGreen
-import com.example.ui.theme.SignalAmber
-import com.example.ui.theme.WarmOffWhite
-import com.example.ui.theme.WarmSilverText
+import com.example.ui.theme.*
 import com.example.viewmodel.AnchorViewModel
 
 @Composable
@@ -229,27 +222,28 @@ fun OnboardingScreen(
                                 Row(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .background(Color(0xFF14161B), RoundedCornerShape(8.dp))
+                                        .background(ObsidianSurface, RoundedCornerShape(12.dp))
                                         .border(
                                             width = 2.dp,
                                             color = if (selectedSanctuary == "mosque") GlowGreen else ObsidianBorder,
-                                            shape = RoundedCornerShape(8.dp)
+                                            shape = RoundedCornerShape(12.dp)
                                         )
                                         .clickable {
                                             selectedSanctuary = "mosque"
                                             locationSaved = false
                                         }
-                                        .padding(12.dp),
+                                        .padding(16.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text("🕌", fontSize = 24.sp)
+                                    Text("🕌", fontSize = 32.sp)
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Column {
-                                        Text("The Mosque", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                                        Text("The Mosque", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 17.sp)
                                         Text(
                                             "Highest redemption value. Fajr earns bonus points.",
-                                            color = MutedSilver,
-                                            fontSize = 13.sp
+                                            color = WarmSilverText,
+                                            fontSize = 14.sp,
+                                            fontWeight = FontWeight.SemiBold
                                         )
                                     }
                                 }
@@ -271,11 +265,11 @@ fun OnboardingScreen(
                                         .padding(12.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text("🏞️", fontSize = 24.sp)
+                                    Text("🏞️", fontSize = 32.sp)
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Column {
-                                        Text("The Community Park", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 16.sp)
-                                        Text("Standard redemption coordinates in nature.", color = MutedSilver, fontSize = 13.sp)
+                                        Text("The Community Park", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 17.sp)
+                                        Text("Standard redemption coordinates in nature.", color = WarmSilverText, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
                                     }
                                 }
 
@@ -296,11 +290,11 @@ fun OnboardingScreen(
                                         .padding(12.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text("🏃", fontSize = 24.sp)
+                                    Text("🏃", fontSize = 32.sp)
                                     Spacer(modifier = Modifier.width(12.dp))
                                     Column {
-                                        Text("Refuge Running Trail", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 16.sp)
-                                        Text("Active physical exercise redemption space.", color = MutedSilver, fontSize = 13.sp)
+                                        Text("Refuge Running Trail", color = WarmOffWhite, fontWeight = FontWeight.Bold, fontSize = 17.sp)
+                                        Text("Active physical exercise redemption space.", color = WarmSilverText, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
                                     }
                                 }
                             }
